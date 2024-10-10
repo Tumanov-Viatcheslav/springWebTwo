@@ -5,12 +5,30 @@
     <title>Каталог</title>
 </head>
 <body>
+<div>
+    <form action="catalog" method="get">
+        <label for="productName">Поиск:</label>
+        <br>
+        <input type="text" name="productName" id="productName" th:value="${productName}">
+        <br>
+        <label for="minCost">Введите минимальную цену:</label>
+        <input type="text" name="minCost" id="minCost" th:value="${minCost}">
+        <label for="maxCost">Введите максимальную цену:</label>
+        <input type="text" name="maxCost" id="maxCost" th:value="${maxCost}">
+        <button type="submit">Поиск</button>
+        <button type="button" onclick="location.href='catalog';">Сбросить</button>
+    </form>
+</div>
+<br>
 Посмотрите наш ассортимент
 <div th:each="product : ${spisok_produktov}">
     <p>
-        Название: <span th:text="${product.name}"/>
+        Название: <a th:text="${product.name}" th:value="${product}" href="product"/>
         цена: <span th:text="${product.cost}"/>
     </p>
+</div>
+<div>
+    <button type="button" onclick="location.href='add_product';">Добавить</button>
 </div>
 </body>
 </html>

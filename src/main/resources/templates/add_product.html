@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Карточка нового товара</title>
+</head>
+<body>
+<div>
+    <form action="add_product" method="get">
+        <label for="productName">Введите название:</label>
+        <input type="text" name="productName" id="productName" required>
+        <br>
+        <label for="productCost">Введите цену:</label>
+        <input type="text" name="productCost" id="productCost" required>
+        <br>
+        <button type="submit">Подтвердить</button>
+        <button type="button" onclick="location.href='catalog';">Отмена</button>
+    </form>
+</div>
+<div th:unless="${added}" th:text="${report}">
+</div>
+</body>
+</html>

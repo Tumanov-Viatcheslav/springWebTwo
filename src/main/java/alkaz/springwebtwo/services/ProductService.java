@@ -29,6 +29,22 @@ public class ProductService {
 
     }
 
+    public List<Product> getFilteredProductList(String productName, String minCost, String maxCost) throws Exception {
+        List<Product> productsFiltered = new ArrayList<>();
+        double min, max;
+        if (minCost.isEmpty())
+            min = Double.MIN_VALUE;
+        else min = Double.parseDouble(minCost);
+        if (maxCost.isEmpty())
+            max = Double.MAX_VALUE;
+        else max = Double.parseDouble(maxCost);
+        System.out.println(productName + ";" + min + ";" + max);
+        for (Product product : products)
+            if (product.getName().toLowerCase().contains(productName.toLowerCase()) && product.getCost() >= min && product.getCost() <= max)
+                productsFiltered.add(product);
+        return productsFiltered;
+    }
+
     public void addProduct(Product product){
         products.add(product);
     }
@@ -38,6 +54,14 @@ public class ProductService {
             if(p.getName().equals(s))
                 return p;
         return null;
+    }
+
+    public int maxId() {
+        int max = 0;
+        for (Product product : products)
+            if (max < product.getId())
+                max = product.getId();
+        return max;
     }
 
     public List<Product> filterByName(String s){

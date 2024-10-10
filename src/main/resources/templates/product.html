@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.name}"></title>
+</head>
+<body>
+Название: <span th:text="${product.name}"/>
+цена: <span th:text="${product.cost}"/>
+<br>
+<button type="button" onclick="location.href='catalog';">Назад к каталогу</button>
+</body>
+</html>
