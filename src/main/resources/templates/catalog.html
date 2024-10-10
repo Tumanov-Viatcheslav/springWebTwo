@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+</head>
+<body>
+Посмотрите наш ассортимент
+<div th:each="product : ${spisok_produktov}">
+    <p>
+        Название: <span th:text="${product.name}"/>
+        цена: <span th:text="${product.cost}"/>
+    </p>
+</div>
+</body>
+</html>
